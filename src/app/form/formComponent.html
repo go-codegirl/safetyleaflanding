@@ -1,0 +1,50 @@
+<section>
+    <div class="container-fluid" style="margin-left: -20px; margin-right: -20px; margin-top: 25px;">
+        <div id="signup">
+            <h1>Sign Up</h1>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <h3>Create Your Safety Leaf Account</h3>
+        <h4>Company</h4>
+        <!--<form (ngSubmit)= "onSubmit(form.value)" [ngFormModel] = "form" class="form-horizontal" role="form">-->
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="inputName"><small>Company Name</small></label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputName" placeholder="Enter your Company Name"
+                           ngControl="companyName">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="inputCountry"><small>Country</small> </label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputCountry" placeholder="India"
+                           ngControl="country">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="inputURL"><small>Your Safety Leaf URL</small></label>
+                <div class="col-sm-1" style="margin-left: -10px; padding-top: 7px; margin-right: -50px; color: #595959;"><small>https://</small></div>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputURL" placeholder=""
+                           ngControl="url">
+                </div>
+                <div class="col-sm-1" style="padding-top: 7px; color: #595959; margin-left: -25px;"><small>.safetyleaf.com</small></div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="inputProfile"><small>Company Profile</small></label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputProfile" placeholder="Select Company Profile"
+                           ngControl="companyProfile">
+                </div>
+            </div>
+            </form>
+        </div>
+    </section>

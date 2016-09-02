@@ -1,0 +1,93 @@
+@font-face {
+    font-family: "open sans light";
+    src: url('../Fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "open sans regular";
+    src: url('../Fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "raleway semibold";
+    src: url('../Fonts/raleway_family_v3/Raleway-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "raleway regular";
+    src: url('../Fonts/raleway_family_v3/Raleway-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "lato bold";
+    src: url('../Fonts/Lato Font/Lato-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "lato semibold italic";
+    src: url('../Fonts/Lato Font/Lato-SemiboldItalic.ttf') format('truetype');
+}
+
+
+.navbar-header img {
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navbar-nav li {
+    margin-top: 25px;
+    /*margin-right: 10px;*/
+    padding-right: 50px;
+}
+
+.navbar-nav .btn-success {
+    height: 50px;
+    width: 150px;
+    background-color: #81b93c;
+    font-family: raleway semibold;
+    font-size: 18px;
+}
+
+.navbar-nav a {
+    color: #595959;
+    font-family: open sans light ;
+    font-size: 18px;
+
+}
+
+.row .btn-success {
+    height: 40px;
+    width: 110px;
+    background-color: #81b93c;
+    font-family: raleway semibold;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.control-label, .form-control {
+    font-size: 14px;
+    color: #595959;
+    font-family: open sans light;
+    font-weight: normal;
+}
+
+.form-group {
+    padding-left: 30px;
+}
+
+.col-md-2 h4 {
+    padding: 20px;
+    margin-right: -20px;
+    margin-left: -15px;
+    text-align: center;
+    color: #595959;
+    background-color: white;
+    margin-top: 40px;
+}
+
+#section9 p  {
+    margin-left: 60px;
+    color: #595959;
+    letter-spacing: 2px;
+}

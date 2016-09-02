@@ -1,0 +1,235 @@
+@font-face {
+    font-family: "open sans light";
+    src: url('../Fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "open sans regular";
+    src: url('../Fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "raleway semibold";
+    src: url('../Fonts/raleway_family_v3/Raleway-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "raleway regular";
+    src: url('../Fonts/raleway_family_v3/Raleway-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "lato bold";
+    src: url('../Fonts/Lato Font/Lato-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "lato semibold italic";
+    src: url('../Fonts/Lato Font/Lato-SemiboldItalic.ttf') format('truetype');
+}
+
+body {
+    padding-top: 50px;
+    position: relative;
+}
+
+pre {
+    tab-size: 8;
+}
+.navbar-header img {
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navbar-nav li {
+    margin-top: 25px;
+    /*margin-right: 10px;*/
+    padding-right: 50px;
+}
+
+.navbar-nav .btn-success {
+    height: 50px;
+    width: 150px;
+    background-color: #81b93c;
+    font-family: raleway semibold;
+    font-size: 18px;
+}
+
+.navbar-nav a {
+    color: #595959;
+    font-family: open sans light ;
+    font-size: 18px;
+}
+
+input[type=email], input[type=password] {
+    width: 45%;
+    padding: 8px;
+    margin-left: 10px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border: none;
+    background-color: lightgray;
+    color: white;
+    outline: none;
+}
+#email {
+
+    padding-left: 20px;
+    color: darkgrey;
+
+}
+
+#password {
+    margin-top: -40px;
+    margin-left: -10px;
+    margin-right: 15px;
+    padding-left: 20px;
+    float: right;
+    color: darkgrey;
+
+}
+
+
+#text {
+    border: none;
+    color: lightgrey;
+    text-decoration: underline;
+    padding-top: 15px;
+    margin-left: 15px;
+    outline: none;
+}
+
+input[type=submit] {
+    border-radius: 4px;
+    border: none;
+    background-color: #81b93c;
+    color: white;
+    padding: 5px;
+    width: 20%;
+    float: right;
+    margin-top: -30px;
+    margin-right: 20px;
+}
+@media screen and (max-width: 767px) {
+    .container-fluid{
+        width:100%;
+        position:relative;
+        right:0;
+        transition:right .4s;
+    }
+    .container-fluid.out{
+        right:200px;
+    }
+    .side-collapse {
+        top:50px;
+        bottom:0;
+        right:0;
+        width:200px;
+        position:fixed;
+        overflow:hidden;
+        transition:width .4s;
+    }
+    .side-collapse.in {
+        width:0;
+    }
+    /*.pad-xs {*/
+        /*padding-top: 200px;*/
+    /*}*/
+
+
+}
+
+#fittext1 {
+    /*background: rgba(0,0,0,0.2);*/
+    text-align: center;
+    color: #595959;
+    font: 60px/1 "Impact";
+    text-transform: uppercase;
+    display: block;
+    letter-spacing: 9px;
+    font-family: lato bold ;
+    margin: 6% auto 2%;
+}
+
+#fittext2 {
+    /*background: rgba(0,0,0,0.2);*/
+    text-align: center;
+    color: #595959;
+    font: 30px/1 "Impact";
+    text-transform: uppercase;
+    display: block;
+    letter-spacing: 2px;
+    font-family: lato semibold italic;
+    margin: 2% auto 5%;
+}
+
+.background-image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    /*bottom: 30px;*/
+
+    display: block;
+    background-image: url(../images/Hero_Image_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 1050px;
+    margin-top: -50px;
+    padding-top: 50px;
+    /*margin-bottom: 30px;*/
+
+
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.pad-lg {
+    /*position:absolute;*/
+    z-index:2;
+    position: fixed;
+    left: 0;
+    right: 0;
+    /*z-index: 9999;*/
+    /*overflow: auto;*/
+    /*margin-left: 20px;*/
+    /*margin-right: 20px;*/
+}
+
+/*.content {*/
+
+    /*position: static;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*z-index: 1;*/
+
+    /*display: block;*/
+    /*background-image: url(../images/Hero_Image_2.jpg);*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    /*!*width: 1200px;*!*/
+    /*height: 900px;*/
+    /*margin-top: -50px;*/
+    /*!*margin-bottom: 50px;*!*/
+
+    /*-webkit-filter: blur(5px);*/
+    /*-moz-filter: blur(5px);*/
+    /*-o-filter: blur(5px);*/
+    /*-ms-filter: blur(5px);*/
+    /*filter: blur(5px);*/
+/*}*/
+
+/*.content {*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*z-index: 0;*/
+    /*margin-left: 20px;*/
+    /*margin-right: 20px;*/
+/*}*/
+
