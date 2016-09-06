@@ -9,18 +9,27 @@ import {ControlGroup, Control, FormBuilder} from "@angular/common";
 })
 
 export class FormComponent {
-   // accountForm: ControlGroup;
-   //
-   //  constructor(private _formBuilder:FormBuilder){
-   //      this._buildForm();
-   //
-   //  }
-   //
-   //  private _buildForm(){
-   //        this.accountForm = this._formBuilder.group({
-   //            companyName:this._formBuilder.control(null),
-   //            url:this._formBuilder.control(null)
-   //        });
-   //  }
+   accountForm: ControlGroup;
+    formActive = true;
+
+    constructor(private _formBuilder:FormBuilder){
+        this._buildForm();
+
+    }
+
+    private _buildForm(){
+          this.accountForm = this._formBuilder.group({
+              companyName:this._formBuilder.control(null),
+              url:this._formBuilder.control(null)
+          });
+    }
+
+    onClearForm(){
+        this._buildForm();
+        this.formActive = false;
+        setTimeout(() => {
+            this.formActive = true;
+        },0);
+    }
 
 }

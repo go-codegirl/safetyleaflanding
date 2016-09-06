@@ -10,7 +10,7 @@
         <h3>Create Your Safety Leaf Account</h3>
         <h4>Company</h4>
         <!--<form (ngSubmit)= "onSubmit(form.value)" [ngFormModel] = "form" class="form-horizontal" role="form">-->
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" [ngFormModel] = "accountForm">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="inputName"><small>Company Name</small></label>
                 <div class="col-sm-4">
@@ -46,5 +46,6 @@
                 </div>
             </div>
             </form>
+        <debug-panel [data]="accountForm.value"></debug-panel>
         </div>
     </section>
