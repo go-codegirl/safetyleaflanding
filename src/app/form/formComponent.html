@@ -9,13 +9,17 @@
 
         <h3>Create Your Safety Leaf Account</h3>
         <h4>Company</h4>
-        <!--<form (ngSubmit)= "onSubmit(form.value)" [ngFormModel] = "form" class="form-horizontal" role="form">-->
-        <form class="form-horizontal" role="form" [ngFormModel] = "accountForm">
+
+        <form [formGroup] = "registerForm" (ngSubmit)="submitRegistration(registerForm)" class="form-horizontal" role="form" >
             <div class="form-group">
                 <label class="control-label col-sm-2" for="inputName"><small>Company Name</small></label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputName" placeholder="Enter your Company Name"
-                           ngControl="companyName">
+                           formControlName="companyName">
+                    <!--<small [hidden]="registerForm.controls.companyName.valid || (registerForm.controls.companyName.pristine && !submitted)" class="text-danger">-->
+                        <!--Name is required (minimum 5 characters).-->
+                    <!--</small>-->
+                    <em *ngIf="registerForm.controls.companyName.errors" style="color: red;">Required!</em>
                 </div>
             </div>
 
@@ -23,7 +27,11 @@
                 <label class="control-label col-sm-2" for="inputCountry"><small>Country</small> </label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputCountry" placeholder="India"
-                           ngControl="country">
+                           formControlName="country">
+                    <!--<small [hidden]="registerForm.controls.country.valid || (registerForm.controls.country.pristine && !submitted)" class="text-danger">-->
+                        <!--Country is required.-->
+                    <!--</small>-->
+                    <em *ngIf="registerForm.controls.country.errors" style="color: red;"> Required!</em>
                 </div>
             </div>
 
@@ -33,7 +41,11 @@
                 <div class="col-sm-1" style="margin-left: -10px; padding-top: 7px; margin-right: -50px; color: #595959;"><small>https://</small></div>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputURL" placeholder=""
-                           ngControl="url">
+                           formControlName="url">
+                    <!--<small [hidden]="registerForm.controls.url.valid || (registerForm.controls.url.pristine && !submitted)" class="text-danger">-->
+                        <!--Required.-->
+                    <!--</small>-->
+                    <em *ngIf="registerForm.controls.url.errors" style="color: red;">Required!</em>
                 </div>
                 <div class="col-sm-1" style="padding-top: 7px; color: #595959; margin-left: -25px;"><small>.safetyleaf.com</small></div>
             </div>
@@ -42,10 +54,126 @@
                 <label class="control-label col-sm-2" for="inputProfile"><small>Company Profile</small></label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputProfile" placeholder="Select Company Profile"
-                           ngControl="companyProfile">
+                           formControlName="companyProfile">
+                    <!--<small [hidden]="registerForm.controls.companyProfile.valid || (registerForm.controls.companyProfile.pristine && !submitted)" class="text-danger">-->
+                        <!--Required.-->
+                    <!--</small>-->
+                    <em *ngIf="registerForm.controls.companyProfile.errors" style="color: red;">Required!</em>
                 </div>
             </div>
-            </form>
-        <debug-panel [data]="accountForm.value"></debug-panel>
-        </div>
-    </section>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="inputNumber"><small>Number of Employees</small></label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="inputNumber" placeholder="Select Number of Employees"
+                           formControlName="employees">
+
+                    <!--<small [hidden]="registerForm.controls.employees.valid || (registerForm.controls.employees.pristine && !submitted)" class="text-danger">-->
+                        <!--Required.-->
+                    <!--</small>-->
+                    <em *ngIf="registerForm.controls.employees.errors" style="color: red;">Required!</em>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="inputDescribe"><small>Describe yourself?</small></label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="inputDescribe" placeholder="Select from the list"
+                           formControlName="describe">
+                    <!--<small [hidden]="registerForm.controls.describe.valid || (registerForm.controls.describe.pristine && !submitted)" class="text-danger">-->
+                        <!--Required.-->
+                    <!--</small>-->
+                    <em *ngIf="registerForm.controls.describe.errors" style="color: red;">Required!</em>
+                </div>
+            </div>
+
+            <h4>Administrator account details</h4>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="inputEmail"><small>Work Email</small></label>
+                <div class="col-sm-5">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter your work email"
+                           formControlName="workEmail">
+                    <!--<small [hidden]="registerForm.controls.workEmail.valid || (registerForm.controls.workEmail.pristine && !submitted)" class="text-danger">-->
+                        <!--Required.-->
+                    <!--</small>-->
+                    <em *ngIf="registerForm.controls.workEmail.hasError('required')" style="color: red;">Required!</em>
+                    <em *ngIf="registerForm.controls.workEmail.hasError('invalidEmail')" style="color: red;">Email is invalid.</em>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="inputAccManagerL"><small>Acc.Manager Name</small></label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="inputAccManagerL" placeholder=""
+                           formControlName="accManager">
+                    <!--<small [hidden]="registerForm.controls.accManager.valid || (registerForm.controls.accManager.pristine && !submitted)" class="text-danger">-->
+                        <!--Required.-->
+                    <!--</small>-->
+                    <em *ngIf="registerForm.controls.accManager.errors" style="color: red;">Required!</em>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd"><small>Password</small></label>
+                <div class="col-sm-5">
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                           formControlName="password">
+                    <em *ngIf="registerForm.controls.password.errors" style="color: red;">Required!</em>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="repwd"><small>Repeat Password</small></label>
+                <div class="col-sm-5">
+                    <input type="password" class="form-control" id="repwd" placeholder="ReEnter password"
+                           formControlName="repPassword">
+                    <!--<small [hidden]="registerForm.controls.repPassword.valid || (registerForm.controls.repPassword.pristine && !submitted)" class="text-danger">-->
+                         <!--Required.-->
+                    <!--</small>-->
+                    <em *ngIf="registerForm.controls.repPassword.errors" style="color: red;">Required!</em>
+                    <em *ngIf="registerForm.controls.repPassword.hasError('mismatchedPasswords')">Passwords do not match.</em>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="inputPhone"><small>Phone</small></label>
+                <div class="col-sm-5">
+                    <input type="number" class="form-control" id="inputPhone" placeholder="+91"
+                           formControlName="phone">
+                    <!--<small [hidden]="registerForm.controls.phone.valid || (registerForm.controls.phone.pristine && !submitted)" class="text-danger">-->
+                         <!--Required.-->
+                    <!--</small>-->
+                    <em *ngIf="registerForm.controls.phone.errors" style="color: red;">Required!</em>
+                </div>
+            </div>
+
+            <h4>Terms and Conditions</h4>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label><input type="checkbox"> <small>I agree to the </small><strong>terms and conditions</strong></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label><input type="checkbox"><small> I agree to the </small><strong>privacy policy</strong></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <!--<a routerLink="" routerLinkActive="active">-->
+                        <button type="submit" [disabled]="!registerForm.valid" class="btn btn-success">SIGN UP</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>

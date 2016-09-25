@@ -91,3 +91,9 @@
     color: #595959;
     letter-spacing: 2px;
 }
+
+input[type=text] {
+    color: black;
+}
+
+
