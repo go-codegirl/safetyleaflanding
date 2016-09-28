@@ -19,7 +19,9 @@
                     <!--<small [hidden]="registerForm.controls.companyName.valid || (registerForm.controls.companyName.pristine && !submitted)" class="text-danger">-->
                         <!--Name is required (minimum 5 characters).-->
                     <!--</small>-->
-                    <em *ngIf="registerForm.controls.companyName.errors" style="color: red;">Required!</em>
+                    <div class='error' *ngIf="registerForm.controls.companyName.touched">
+                        <em *ngIf="registerForm.controls.companyName.errors" style="color: red;">You can't leave this empty.!</em>
+                    </div>
                 </div>
             </div>
 
@@ -31,7 +33,9 @@
                     <!--<small [hidden]="registerForm.controls.country.valid || (registerForm.controls.country.pristine && !submitted)" class="text-danger">-->
                         <!--Country is required.-->
                     <!--</small>-->
+                    <div class='error' *ngIf="registerForm.controls.country.touched">
                     <em *ngIf="registerForm.controls.country.errors" style="color: red;"> Required!</em>
+                        </div>
                 </div>
             </div>
 
@@ -45,7 +49,9 @@
                     <!--<small [hidden]="registerForm.controls.url.valid || (registerForm.controls.url.pristine && !submitted)" class="text-danger">-->
                         <!--Required.-->
                     <!--</small>-->
+                    <div class='error' *ngIf="registerForm.controls.url.touched">
                     <em *ngIf="registerForm.controls.url.errors" style="color: red;">Required!</em>
+                        </div>
                 </div>
                 <div class="col-sm-1" style="padding-top: 7px; color: #595959; margin-left: -25px;"><small>.safetyleaf.com</small></div>
             </div>
@@ -58,7 +64,9 @@
                     <!--<small [hidden]="registerForm.controls.companyProfile.valid || (registerForm.controls.companyProfile.pristine && !submitted)" class="text-danger">-->
                         <!--Required.-->
                     <!--</small>-->
+                    <div class='error' *ngIf="registerForm.controls.companyProfile.touched">
                     <em *ngIf="registerForm.controls.companyProfile.errors" style="color: red;">Required!</em>
+                        </div>
                 </div>
             </div>
 
@@ -71,7 +79,9 @@
                     <!--<small [hidden]="registerForm.controls.employees.valid || (registerForm.controls.employees.pristine && !submitted)" class="text-danger">-->
                         <!--Required.-->
                     <!--</small>-->
+                    <div class='error' *ngIf="registerForm.controls.employees.touched">
                     <em *ngIf="registerForm.controls.employees.errors" style="color: red;">Required!</em>
+                        </div>
                 </div>
             </div>
 
@@ -83,7 +93,9 @@
                     <!--<small [hidden]="registerForm.controls.describe.valid || (registerForm.controls.describe.pristine && !submitted)" class="text-danger">-->
                         <!--Required.-->
                     <!--</small>-->
+                    <div class='error' *ngIf="registerForm.controls.describe.touched">
                     <em *ngIf="registerForm.controls.describe.errors" style="color: red;">Required!</em>
+                        </div>
                 </div>
             </div>
 
@@ -97,8 +109,10 @@
                     <!--<small [hidden]="registerForm.controls.workEmail.valid || (registerForm.controls.workEmail.pristine && !submitted)" class="text-danger">-->
                         <!--Required.-->
                     <!--</small>-->
+                    <div class='error' *ngIf="registerForm.controls.workEmail.touched">
                     <em *ngIf="registerForm.controls.workEmail.hasError('required')" style="color: red;">Required!</em>
                     <em *ngIf="registerForm.controls.workEmail.hasError('invalidEmail')" style="color: red;">Email is invalid.</em>
+                        </div>
                 </div>
             </div>
 
@@ -110,7 +124,9 @@
                     <!--<small [hidden]="registerForm.controls.accManager.valid || (registerForm.controls.accManager.pristine && !submitted)" class="text-danger">-->
                         <!--Required.-->
                     <!--</small>-->
+                    <div class='error' *ngIf="registerForm.controls.accManager.touched">
                     <em *ngIf="registerForm.controls.accManager.errors" style="color: red;">Required!</em>
+                        </div>
                 </div>
             </div>
 
@@ -120,7 +136,23 @@
                 <div class="col-sm-5">
                     <input type="password" class="form-control" id="pwd" placeholder="Enter password"
                            formControlName="password">
+                    <div class='error' *ngIf="registerForm.controls.password.touched">
                     <em *ngIf="registerForm.controls.password.errors" style="color: red;">Required!</em>
+                        </div>
+                    <em *ngIf="registerForm.hasError('invalidPassword')" style="color: gray;">At least one upper case,</em>
+                    <em *ngIf="registerForm.hasError('invalidPassword')" style="color: green;">At least one upper case,</em>
+                    <!--<em [hidden]="registerForm.controls.password.valid" style="color: gray;">At least one upper case,</em>-->
+                    <!--<em [hidden]="registerForm.controls.password.valid" style="color: green;">At least one upper case,</em>-->
+                    <!--<em [show]="registerForm.controls.password.invalid" style="color: gray;">one lower case,</em>-->
+                    <em *ngIf="registerForm.hasError('smallPassword')" style="color: gray;">one lower case,</em>
+                    <em *ngIf="registerForm.hasError('smallPassword')" style="color: green;">one lower case,</em>
+                    <!--<em *ngIf="registerForm.controls.password.valid" style="color: green;">one digit,</em>-->
+                    <!--<em *ngIf="registerForm.controls.password.invalid" style="color: gray;">one special character,</em>-->
+                    <!--<em *ngIf="registerForm.controls.password.valid" style="color: green;">one special character,</em>-->
+                    <!--<em *ngIf="registerForm.controls.password.invalid" style="color: gray;">Minimum 8 in length!</em>-->
+                    <!--<em *ngIf="registerForm.controls.password.valid" style="color: green;">Minimum 8 in length!</em>-->
+                    <!--<em *ngIf="registerForm.controls.password" style="color: gray;">At least one upper case, one lower case, one digit, one special character and-->
+                        <!--Minimum 8 in length! is required</em>-->
                 </div>
             </div>
 
@@ -132,8 +164,11 @@
                     <!--<small [hidden]="registerForm.controls.repPassword.valid || (registerForm.controls.repPassword.pristine && !submitted)" class="text-danger">-->
                          <!--Required.-->
                     <!--</small>-->
-                    <em *ngIf="registerForm.controls.repPassword.errors" style="color: red;">Required!</em>
-                    <em *ngIf="registerForm.controls.repPassword.hasError('mismatchedPasswords')">Passwords do not match.</em>
+                    <div class='error' *ngIf="registerForm.controls.repPassword.touched">
+                        <em *ngIf="registerForm.controls.repPassword.errors" style="color: red;">Required!</em>
+                        <em *ngIf="registerForm.hasError('mismatchedPasswords')" style="color: red;">Passwords do not
+                            match.</em>
+                    </div>
                 </div>
             </div>
 
@@ -145,7 +180,9 @@
                     <!--<small [hidden]="registerForm.controls.phone.valid || (registerForm.controls.phone.pristine && !submitted)" class="text-danger">-->
                          <!--Required.-->
                     <!--</small>-->
+                    <div class='error' *ngIf="registerForm.controls.phone.touched">
                     <em *ngIf="registerForm.controls.phone.errors" style="color: red;">Required!</em>
+                        </div>
                 </div>
             </div>
 
