@@ -139,18 +139,8 @@
                     <div class='error' *ngIf="registerForm.controls.password.touched">
                     <em *ngIf="registerForm.controls.password.errors" style="color: red;">Required!</em>
                         </div>
-                    <em *ngIf="registerForm.hasError('invalidPassword')" style="color: gray;">At least one upper case,</em>
-                    <em *ngIf="registerForm.hasError('invalidPassword')" style="color: green;">At least one upper case,</em>
-                    <!--<em [hidden]="registerForm.controls.password.valid" style="color: gray;">At least one upper case,</em>-->
-                    <!--<em [hidden]="registerForm.controls.password.valid" style="color: green;">At least one upper case,</em>-->
-                    <!--<em [show]="registerForm.controls.password.invalid" style="color: gray;">one lower case,</em>-->
-                    <em *ngIf="registerForm.hasError('smallPassword')" style="color: gray;">one lower case,</em>
-                    <em *ngIf="registerForm.hasError('smallPassword')" style="color: green;">one lower case,</em>
-                    <!--<em *ngIf="registerForm.controls.password.valid" style="color: green;">one digit,</em>-->
-                    <!--<em *ngIf="registerForm.controls.password.invalid" style="color: gray;">one special character,</em>-->
-                    <!--<em *ngIf="registerForm.controls.password.valid" style="color: green;">one special character,</em>-->
-                    <!--<em *ngIf="registerForm.controls.password.invalid" style="color: gray;">Minimum 8 in length!</em>-->
-                    <!--<em *ngIf="registerForm.controls.password.valid" style="color: green;">Minimum 8 in length!</em>-->
+                    <em [hidden]="registerForm.controls.password.hasError('capPasswordError')" style="color: gray;">At least one upper case,</em>
+                    <em [hidden]="registerForm.controls.password.hasError('smallPasswordError')" style="color: gray;">At least one lower case,</em>
                     <!--<em *ngIf="registerForm.controls.password" style="color: gray;">At least one upper case, one lower case, one digit, one special character and-->
                         <!--Minimum 8 in length! is required</em>-->
                 </div>
