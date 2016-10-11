@@ -1,9 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {
-    emailValidator, matchingPasswords, passwordValidator, smallValidator
-} from './validators';
-import {Headers, URLSearchParams,Http, Response} from "@angular/http";
+    emailValidator, matchingPasswords,
+    // caseTypeValidator, numberSpecialValidator,
+    minimumValidator, upperCaseValidator, lowerCaseValidator, numberValidator, specialValidator} from './validators';
+import {Headers, URLSearchParams, Http, Response} from "@angular/http";
+import {getSelectorOptions} from './selectOptions';
+import {getSelectCompanyProfile, getSelectEmployeeNumber,getSelectDescribe} from './selectCompanyProfile';
 
 
 
@@ -21,9 +24,20 @@ export class FormComponent
 
     registerForm: FormGroup;
     httpClient:Http;
+    countriesList:any;
+    companyList:string[];
+    countryCode:string[];
+    employeeList:string[];
+    describeList:string[];
 
     constructor(private formBuilder: FormBuilder, private http:Http) {
         this.httpClient = http;
+
+
+        this.countriesList= getSelectorOptions('country');
+        this.companyList=getSelectCompanyProfile('company');
+        this.employeeList=getSelectEmployeeNumber('employee');
+        this.describeList=getSelectDescribe('describe');
 
         this.registerForm = formBuilder.group({
                 companyName: ['', Validators.required],
@@ -34,7 +48,8 @@ export class FormComponent
                 describe: ['', Validators.required],
                 workEmail: ['', Validators.compose([Validators.required,emailValidator])],
                 accManager: ['', Validators.required],
-                password: ['', Validators.compose([Validators.required, smallValidator])],
+                password: ['', Validators.compose([Validators.required, /*caseTypeValidator, numberSpecialValidator, */minimumValidator,upperCaseValidator, lowerCaseValidator,
+                    numberValidator, specialValidator])],
                 repPassword: ['', Validators.required],
                 phone: ['', Validators.required]
             }
@@ -45,7 +60,6 @@ export class FormComponent
     }
 
     ngOnInit() {
-
 
     }
 
@@ -71,5 +85,14 @@ export class FormComponent
 
             }
 
+
+    onChangeByAgree()
+    {
+        console.log("working now");
+    }
+
+    onChange(c:any) {
+        this.countryCode = c;
+    }
 
 }

@@ -7,7 +7,7 @@
  */
 
 // SINGLE FIELD VALIDATORS
-import {FormControl,FormGroup,FormBuilder} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 import {ControlGroup} from "@angular/common";
 
 
@@ -31,72 +31,85 @@ export function matchingPasswords(passwordKey: string, confirmPasswordKey: strin
     }
 }
 
-// password requirements
 
-// export function passwordValidator(control: FormControl): {[key: string]: any} {
+// export function caseTypeValidator(control: FormControl): {[key: string]: any} {
 //
-//     // let PASSWORD_REGEXP =/^(.{0,7}|[^0-9]*|[^A-Z]*|[a-zA-Z0-9]*)$/;
-//     let PASSWORD_REGEXP =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;
+//     let SMALL_REGEXP =/(.*[a-z])/;
+//     let CAP_REGEXP =/(.*[A-Z])/;
 //
-//     if (control.value && !PASSWORD_REGEXP.test(control.value)) {
-//         return {invalidPassword: true};
+//     if(control.value && CAP_REGEXP.test(control.value) && SMALL_REGEXP.test(control.value)) {
+//         return  {capPasswordError: false,smallPasswordError: false};
+//     }
+//     else if(control.value && CAP_REGEXP.test(control.value)) {
+//         return {capPasswordError: false};
+//     }
+//     else if(control.value && SMALL_REGEXP.test(control.value)) {
+//         return {smallPasswordError: false};
+//     }
+// }
+//
+// export function numberSpecialValidator(control: FormControl): {[key: string]: any} {
+//
+//     let NUM_REGEXP =/(.*[0-9])/;
+//     let SPEC_REGEXP =/(.*[!@#\$%\^&\*])/;
+//
+//     if(control.value && NUM_REGEXP.test(control.value) && SPEC_REGEXP.test(control.value)) {
+//         return  {numPasswordError: true,specPasswordError: true};
+//     }
+//     else if(control.value && NUM_REGEXP.test(control.value)) {
+//         return {numPasswordError: true};
+//     }
+//     else if(control.value && SPEC_REGEXP.test(control.value)) {
+//         return {specPasswordError: true};
 //     }
 // }
 
-export function passwordValidator(control: FormControl): {[key: string]: any} {
+export function minimumValidator(control: FormControl): {[key: string]: any} {
 
-    // let PASSWORD_REGEXP =/^(.{0,7}|[^0-9]*|[^A-Z]*|[a-zA-Z0-9]*)$/;
-    let PASSWORD_REGEXP =/^(?=.*[A-Z])/;
+    let MIN_REGEXP =/(.*[a-zA-Z0-9]{8,})/;
 
-    if (control.value && !PASSWORD_REGEXP.test(control.value)) {
-        return {invalidPassword: true};
+     if(control.value && !MIN_REGEXP.test(control.value)) {
+        return {minPasswordError: true};
     }
+
 }
 
-export function smallValidator(control: FormControl): {[key: string]: any} {
+export function upperCaseValidator(control: FormControl): {[key: string]: any} {
 
-    // let PASSWORD_REGEXP =/^(.{0,7}|[^0-9]*|[^A-Z]*|[a-zA-Z0-9]*)$/;
-    let SMALL_REGEXP =/(.*[a-z])/;
     let CAP_REGEXP =/(.*[A-Z])/;
 
-    if(control.value && CAP_REGEXP.test(control.value) && SMALL_REGEXP.test(control.value)) {
-        return  {capPasswordError: true,smallPasswordError: true};
-    }
-    else if(control.value && CAP_REGEXP.test(control.value)) {
+    if(control.value && !CAP_REGEXP.test(control.value)) {
         return {capPasswordError: true};
     }
-    else if(control.value && SMALL_REGEXP.test(control.value)) {
-        return {smallPasswordError: true};
-    }
+
 }
 
+export function lowerCaseValidator(control: FormControl): {[key: string]: any} {
 
-// export function smallValidator(control: FormControl): {[key: string]: any} {
-//
-//     // let PASSWORD_REGEXP =/^(.{0,7}|[^0-9]*|[^A-Z]*|[a-zA-Z0-9]*)$/;
-//     let SMALL_REGEXP =/^(?=.*[0-9])/;
-//
-//     if (control.value && !SMALL_REGEXP.test(control.value)) {
-//         return {smallPassword: true};
-//     }
-// }
-//
-// export function smallValidator(control: FormControl): {[key: string]: any} {
-//
-//     // let PASSWORD_REGEXP =/^(.{0,7}|[^0-9]*|[^A-Z]*|[a-zA-Z0-9]*)$/;
-//     let SMALL_REGEXP =/^(?=.*[!@#\$%\^&\*])/;
-//
-//     if (control.value && !SMALL_REGEXP.test(control.value)) {
-//         return {smallPassword: true};
-//     }
-// }
-//
-// export function smallValidator(control: FormControl): {[key: string]: any} {
-//
-//     // let PASSWORD_REGEXP =/^(.{0,7}|[^0-9]*|[^A-Z]*|[a-zA-Z0-9]*)$/;
-//     let SMALL_REGEXP =/^(?=.{8,})/;
-//
-//     if (control.value && !SMALL_REGEXP.test(control.value)) {
-//         return {smallPassword: true};
-//     }
-// }
+    let SMALL_REGEXP =/(.*[a-z])/;
+
+    if(control.value && !SMALL_REGEXP.test(control.value)) {
+        return {smallPasswordError: true};
+    }
+
+}
+
+export function numberValidator(control: FormControl): {[key: string]: any} {
+
+    let NUM_REGEXP =/(.*[0-9])/;
+
+    if(control.value && !NUM_REGEXP.test(control.value)) {
+        return {numPasswordError: true};
+    }
+
+}
+
+export function specialValidator(control: FormControl): {[key: string]: any} {
+
+    let SPEC_REGEXP =/(.*[!@#\$%\^&\*])/;
+
+    if(control.value && !SPEC_REGEXP.test(control.value)) {
+        return {specPasswordError: true};
+    }
+
+}

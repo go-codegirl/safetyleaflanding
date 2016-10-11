@@ -28,11 +28,12 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="inputCountry"><small>Country</small> </label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputCountry" placeholder="India"
-                           formControlName="country">
-                    <!--<small [hidden]="registerForm.controls.country.valid || (registerForm.controls.country.pristine && !submitted)" class="text-danger">-->
-                        <!--Country is required.-->
-                    <!--</small>-->
+                    <select class="form-control" id="inputCountry" placeholder="India"
+                           formControlName="country" (change)="onChange($event.target.value)">
+                        <option *ngFor="let listIteam of countriesList" [value]="listIteam.dial_code">
+                            {{listIteam.name}}
+                        </option>
+                    </select>
                     <div class='error' *ngIf="registerForm.controls.country.touched">
                     <em *ngIf="registerForm.controls.country.errors" style="color: red;"> Required!</em>
                         </div>
@@ -59,8 +60,15 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="inputProfile"><small>Company Profile</small></label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputProfile" placeholder="Select Company Profile"
-                           formControlName="companyProfile">
+                    <select class="form-control" id="inputProfile" placeholder="Select Company Profile"
+                            formControlName="companyProfile">
+                        <option *ngFor="let listIteam of companyList">
+                            {{listIteam}}
+                        </option>
+                    </select>
+
+                    <!--<input type="text" class="form-control" id="inputProfile" placeholder="Select Company Profile"-->
+                           <!--formControlName="companyProfile">-->
                     <!--<small [hidden]="registerForm.controls.companyProfile.valid || (registerForm.controls.companyProfile.pristine && !submitted)" class="text-danger">-->
                         <!--Required.-->
                     <!--</small>-->
@@ -73,12 +81,16 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="inputNumber"><small>Number of Employees</small></label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="inputNumber" placeholder="Select Number of Employees"
-                           formControlName="employees">
 
-                    <!--<small [hidden]="registerForm.controls.employees.valid || (registerForm.controls.employees.pristine && !submitted)" class="text-danger">-->
-                        <!--Required.-->
-                    <!--</small>-->
+                    <select class="form-control" id="inputNumber" placeholder="Select Number of Employees"
+                            formControlName="employees">
+                        <option *ngFor="let listIteam of employeeList">
+                            {{listIteam}}
+                        </option>
+                    </select>
+                    <!--<input type="text" class="form-control" id="inputNumber" placeholder="Select Number of Employees"-->
+                           <!--formControlName="employees">-->
+
                     <div class='error' *ngIf="registerForm.controls.employees.touched">
                     <em *ngIf="registerForm.controls.employees.errors" style="color: red;">Required!</em>
                         </div>
@@ -88,8 +100,15 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="inputDescribe"><small>Describe yourself?</small></label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="inputDescribe" placeholder="Select from the list"
-                           formControlName="describe">
+
+                    <select class="form-control" id="inputDescribe" placeholder="Select from the list"
+                            formControlName="describe">
+                        <option *ngFor="let listIteam of describeList">
+                            {{listIteam}}
+                        </option>
+                    </select>
+                    <!--<input type="text" class="form-control" id="inputDescribe" placeholder="Select from the list"-->
+                           <!--formControlName="describe">-->
                     <!--<small [hidden]="registerForm.controls.describe.valid || (registerForm.controls.describe.pristine && !submitted)" class="text-danger">-->
                         <!--Required.-->
                     <!--</small>-->
@@ -132,17 +151,42 @@
 
 
             <div class="form-group">
-                <label class="control-label col-sm-2" for="pwd"><small>Password</small></label>
+                <label class="control-label col-sm-2" for="pwd">
+                    <small>Password</small>
+                </label>
                 <div class="col-sm-5">
                     <input type="password" class="form-control" id="pwd" placeholder="Enter password"
                            formControlName="password">
                     <div class='error' *ngIf="registerForm.controls.password.touched">
-                    <em *ngIf="registerForm.controls.password.errors" style="color: red;">Required!</em>
-                        </div>
-                    <em [hidden]="registerForm.controls.password.hasError('capPasswordError')" style="color: gray;">At least one upper case,</em>
-                    <em [hidden]="registerForm.controls.password.hasError('smallPasswordError')" style="color: gray;">At least one lower case,</em>
-                    <!--<em *ngIf="registerForm.controls.password" style="color: gray;">At least one upper case, one lower case, one digit, one special character and-->
-                        <!--Minimum 8 in length! is required</em>-->
+                        <em *ngIf="registerForm.controls.password.errors" style="color: red;">Required!</em>
+                    </div>
+
+                    <em *ngIf="registerForm.controls.password.hasError('capPasswordError')" style="color: red;">At
+                        least one upper case,</em>
+                    <em [hidden]="registerForm.controls.password.hasError('capPasswordError')" style="color: gray;">At
+                        least one upper case,</em>
+
+                    <em *ngIf="registerForm.controls.password.hasError('smallPasswordError')" style="color: red;">At
+                        least one lower case,</em>
+                    <em [hidden]="registerForm.controls.password.hasError('smallPasswordError')" style="color: gray;">At
+                        least one lower case,</em>
+
+                    <em *ngIf="registerForm.controls.password.hasError('numPasswordError')" style="color: red;">At
+                        least one number,</em>
+                    <em [hidden]="registerForm.controls.password.hasError('numPasswordError')" style="color: gray;">At
+                        least one number,</em>
+
+                    <em *ngIf="registerForm.controls.password.hasError('specPasswordError')" style="color: red;">At
+                        least one special character,</em>
+                    <em [hidden]="registerForm.controls.password.hasError('specPasswordError')" style="color: gray;">At
+                        least one special character,</em>
+
+                    <em *ngIf="registerForm.controls.password.hasError('minPasswordError')" style="color: red;">At
+                        least 8 character</em>
+                    <em [hidden]="registerForm.controls.password.hasError('minPasswordError')" style="color: gray;">At
+                        least 8 character</em>
+
+
                 </div>
             </div>
 
@@ -164,8 +208,9 @@
 
             <div class="form-group">
                 <label class="control-label col-sm-2" for="inputPhone"><small>Phone</small></label>
+                <div class="col-sm-1" style="margin-top: 10px; margin-right: -50px;">{{countryCode}}</div>
                 <div class="col-sm-5">
-                    <input type="number" class="form-control" id="inputPhone" placeholder="+91"
+                    <input type="number" class="form-control" id="inputPhone" placeholder=""
                            formControlName="phone">
                     <!--<small [hidden]="registerForm.controls.phone.valid || (registerForm.controls.phone.pristine && !submitted)" class="text-danger">-->
                          <!--Required.-->
@@ -190,7 +235,7 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <div class="checkbox">
-                        <label><input type="checkbox"><small> I agree to the </small><strong>privacy policy</strong></label>
+                        <label><input type="checkbox" (change)="onChangeByAgree()"><small> I agree to the </small><strong>privacy policy</strong></label>
                     </div>
                 </div>
             </div>
