@@ -12,6 +12,8 @@ import {IndexDefaultComponent} from './indexDefault/indexDefaultComponent';
 import {FormComponent} from './form/formComponent';
 import {ProductComponent} from './productPage/productComponent';
 import {ProfileComponent} from './profilePage/profileComponent';
+import {LoginFormComponent} from './loginForm/loginFormComponent';
+import {profileDataServices} from './service/profileDataService';
 
 @NgModule({
     declarations: [
@@ -21,7 +23,8 @@ import {ProfileComponent} from './profilePage/profileComponent';
         AboutComponent,
         IndexDefaultComponent,
         ProductComponent,
-        ProfileComponent
+        ProfileComponent,
+        LoginFormComponent
     ],
     imports: [
         BrowserModule,
@@ -32,7 +35,7 @@ import {ProfileComponent} from './profilePage/profileComponent';
         ReactiveFormsModule
 
     ],
-    providers: [appRoutingProviders],
+    providers: [appRoutingProviders,profileDataServices],
     bootstrap: [AppComponent]
 })
 

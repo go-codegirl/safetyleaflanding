@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "open sans light";
+    src: url('/src/app/Fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
+}
+
+.navbar-nav li {
+    margin-top: 25px;
+    /*margin-right: 10px;*/
+    padding-right: 50px;
+}
+.navbar-nav a {
+    color: #595959;
+    font-family: open sans light ;
+    font-size: 18px;
+}
+input[type=email], input[type=password] {
+    width: 45%;
+    padding: 8px;
+    margin-left: 10px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    border: none;
+    background-color: lightgray;
+    color: white;
+    outline: none;
+}
+#email {
+
+    padding-left: 20px;
+    color: darkgrey;
+
+}
+
+#password {
+    margin-top: -40px;
+    margin-left: -10px;
+    margin-right: 15px;
+    padding-left: 20px;
+    float: right;
+    color: darkgrey;
+
+}

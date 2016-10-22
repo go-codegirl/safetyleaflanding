@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {profileDataServices} from "../service/profileDataService";
 
 
 @Component({
@@ -9,6 +10,9 @@ import {Component} from '@angular/core';
 
 
 export class ProfileComponent {
+    constructor(private profileDataService: profileDataServices) {
+    }
 
+    companyNameFromService = this.profileDataService.getData[0];
 
 }
