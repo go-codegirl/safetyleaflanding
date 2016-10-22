@@ -13,6 +13,6 @@ export class ProfileComponent {
     constructor(private profileDataService: profileDataServices) {
     }
 
-    companyNameFromService = this.profileDataService.getData[0];
+    companyNameFromService = this.profileDataService.getData();
 
 }

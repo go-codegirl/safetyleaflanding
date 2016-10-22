@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="inputCountry"><small>Country</small> </label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputCountry" placeholder="India">
+                            <input type="text" class="form-control" id="inputCountry" [value]="companyNameFromService.country">
                         </div>
                     </div>
 
@@ -26,7 +26,7 @@
                         <label class="control-label col-sm-2" for="inputURL"><small>Your Safety Leaf URL</small></label>
                         <div class="col-sm-1" style="margin-left: 5px; padding-top: 7px; margin-right: -60px; color: #595959;"><small>https://</small></div>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputURL" placeholder="popular6">
+                            <input type="text" class="form-control" id="inputURL" [value]="companyNameFromService.url">
                         </div>
                         <div class="col-sm-1" style="padding-top: 7px; color: #595959; margin-left: -25px;;"><small>.safetyleaf.com</small></div>
                     </div>
@@ -34,21 +34,21 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="inputProfile"><small>Company Profile</small></label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputProfile" placeholder="Insurance">
+                            <input type="text" class="form-control" id="inputProfile" [value]="companyNameFromService.companyProfile">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="inputNumber"><small>Number of Employees</small></label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputNumber" placeholder="50">
+                            <input type="text" class="form-control" id="inputNumber" [value]="companyNameFromService.employees">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="inputDescribe"><small>Describe yourself?</small></label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputDescribe" placeholder="Developer">
+                            <input type="text" class="form-control" id="inputDescribe" [value]="companyNameFromService.describe">
                         </div>
                     </div>
 
@@ -57,14 +57,14 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="inputEmail"><small>Work Email</small></label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputEmail" placeholder="sravani726@gmail.com">
+                            <input type="text" class="form-control" id="inputEmail" [value]="companyNameFromService.workEmail">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="inputAccManagerL"><small>Acc.Manager Name</small></label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputAccManagerL" placeholder="Karthik">
+                            <input type="text" class="form-control" id="inputAccManagerL" [value]="companyNameFromService.accManager">
                         </div>
                     </div>
 
@@ -72,14 +72,14 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="pwd"><small>Password</small></label>
                         <div class="col-sm-4">
-                            <input type="password" class="form-control" id="pwd" placeholder="*********">
+                            <input type="password" class="form-control" id="pwd" [value]="companyNameFromService.password">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="inputPhone"><small>Phone</small></label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" id="inputPhone" placeholder="+919848021211">
+                            <input type="text" class="form-control" id="inputPhone" [value]="companyNameFromService.phone">
                         </div>
                     </div>
                 </form>

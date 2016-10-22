@@ -4,11 +4,11 @@
 export class profileDataServices
 {
     getData(){
-        return this.profileData;
+        return this.profileData[1];
     }
 
-    addData(profileIteam){
-        this.profileData.push(profileIteam);
+    addData(profileItem:any){
+        this.profileData.push(profileItem);
 
     }
 

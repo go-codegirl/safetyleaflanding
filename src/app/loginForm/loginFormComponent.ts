@@ -16,8 +16,6 @@ export class LoginFormComponent {
 
     loginForm: FormGroup;
     httpClient:Http;
-    data:any;
-    private routeToProfile:string;
 
     constructor(private formBuilder: FormBuilder, private router: Router, private http:Http, private profileDataService: profileDataServices) {
         this.httpClient = this.http;
@@ -48,7 +46,7 @@ export class LoginFormComponent {
         this.httpClient.get('http://localhost:8080/login?username='+email+'&password='+password, {
             headers: headers
         })
-            .map(res => res.text())
+            .map(res => res.json())
             .subscribe(data => this.profileDataService.addData(data),
                 err => console.log(err),
                 () => console.log(this.router.navigate(['./profilePage'])));
