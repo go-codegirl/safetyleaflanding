@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-// import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LoginFormComponent} from './loginForm/loginFormComponent';
 
 
@@ -11,21 +10,4 @@ import {LoginFormComponent} from './loginForm/loginFormComponent';
 })
 
 export class AppComponent {
-
-    // loginForm: FormGroup;
-    //
-    // constructor(private formBuilder: FormBuilder) {
-    //     this.loginForm = formBuilder.group({
-    //         email: ['', Validators.required],
-    //         password: ['', Validators.required]
-    //     })
-    // }
-    //
-    // submitLogin(value: any)
-    // {
-    //     console.log(value);
-    // }
-
-
-
 }
