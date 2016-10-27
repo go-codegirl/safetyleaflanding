@@ -125,13 +125,36 @@
                 <div class="col-sm-5">
                     <input type="email" class="form-control" id="inputEmail" placeholder="Enter your work email"
                            formControlName="workEmail">
-                    <!--<small [hidden]="registerForm.controls.workEmail.valid || (registerForm.controls.workEmail.pristine && !submitted)" class="text-danger">-->
-                        <!--Required.-->
-                    <!--</small>-->
+
                     <div class='error' *ngIf="registerForm.controls.workEmail.touched">
                     <em *ngIf="registerForm.controls.workEmail.hasError('required')" style="color: red;">Required!</em>
                     <em *ngIf="registerForm.controls.workEmail.hasError('invalidEmail')" style="color: red;">Email is invalid.</em>
                         </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="hrEmail"><small>Have Group HR Email</small>
+
+                </label>
+                <div class="col-sm-5" style="padding-top: 10px;">
+                    <input type="checkbox" id="hrEmail" checked onclick="ShowHideDiv(this)" />
+                    <a class="glyphicon glyphicon-info-sign infobtn" data-toggle="tooltip" data-placement="right"
+                          data-original-title="Verification email would be sent to the entered ID with activation link and password "></a>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" id="EmailID"><small>Group HR Email ID</small>
+
+                </label>
+                <div class="col-sm-5">
+                     <input type="text" class="form-control" id="groupEmail" placeholder="Enter HR Email ID"
+                           formControlName="workEmail">
+                    <div class='error' *ngIf="registerForm.controls.workEmail.touched">
+                        <em *ngIf="registerForm.controls.workEmail.hasError('required')" style="color: red;">Required!</em>
+                        <em *ngIf="registerForm.controls.workEmail.hasError('invalidEmail')" style="color: red;">Email is invalid.</em>
+                    </div>
                 </div>
             </div>
 
@@ -208,7 +231,8 @@
 
             <div class="form-group">
                 <label class="control-label col-sm-2" for="inputPhone"><small>Phone</small></label>
-                <div class="col-sm-1" style="margin-top: 10px; margin-right: -50px;">{{countryCode}}</div>
+                <div class="col-sm-1" style="margin-right: -20px;">
+                    <input type="text"  class="form-control" id="code" placeholder="{{countryCode}}"></div>
                 <div class="col-sm-5">
                     <input type="number" class="form-control" id="inputPhone" placeholder=""
                            formControlName="phone">

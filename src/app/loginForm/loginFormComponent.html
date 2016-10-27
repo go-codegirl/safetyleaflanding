@@ -1,10 +1,13 @@
+
+<section>
+
 <form [formGroup]="loginForm" (ngSubmit)="submitLogin(loginForm)" class="form-horizontal">
 
     <div class="form-group">
 
         <div class="col-sm-12">
             <input class="form-control" style="margin-top: 8px;" type="email" id="email" placeholder="Email"
-                   formControlName="email"/>
+                   formControlName="email">
 
         </div>
     </div>
@@ -12,16 +15,16 @@
     <div class="form-group">
         <div class="col-sm-12" style="margin-top: -10px;">
             <input class="form-control" type="password" id="password" placeholder="Passsword"
-                   formControlName="password"/>
+                   formControlName="password">
             <!--<em *ngIf="loginForm.controls.password.errors" style="color: red;"> Required!</em>-->
         </div>
     </div>
 
     <div>
 
-        <input type="submit"
+        <input type="submit" id="forgot"
                style="float: left; margin-top: -10px; margin-left: 10px; margin-right: 10px; text-decoration: underline; background-color: Transparent; color: gray;"
-               value="Forgot Login"/>
+               value="Forgot Login">
 
     </div>
 
@@ -35,6 +38,6 @@
 
 </form>
 
-
+</section>
 
 

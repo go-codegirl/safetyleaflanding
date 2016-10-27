@@ -13,6 +13,7 @@ import {FormComponent} from './form/formComponent';
 import {ProductComponent} from './productPage/productComponent';
 import {ProfileComponent} from './profilePage/profileComponent';
 import {LoginFormComponent} from './loginForm/loginFormComponent';
+import {FooterComponent} from './footer/footerComponent';
 import {profileDataServices} from './service/profileDataService';
 
 @NgModule({
@@ -24,7 +25,8 @@ import {profileDataServices} from './service/profileDataService';
         IndexDefaultComponent,
         ProductComponent,
         ProfileComponent,
-        LoginFormComponent
+        LoginFormComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,

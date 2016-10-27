@@ -1,27 +1,27 @@
-/*@font-face {*/
-    /*font-family: "open sans light";*/
-    /*src: url('../Fonts/OpenSans/OpenSans-Light.ttf') format('truetype');*/
-/*}*/
+@font-face {
+    font-family: "open sans light";
+    src: url('/src/app/Fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
+}
 
-/*@font-face {*/
-    /*font-family: "open sans regular";*/
-    /*src: url('../Fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');*/
-/*}*/
+@font-face {
+    font-family: "open sans regular";
+    src: url('/src/app/Fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+}
 
-/*@font-face {*/
-    /*font-family: "open sans semibold";*/
-    /*src: url('../Fonts/OpenSans/OpenSans-Semibold.ttf') format('truetype');*/
-/*}*/
+@font-face {
+    font-family: "open sans semibold";
+    src: url('/src/app/Fonts/OpenSans/OpenSans-Semibold.ttf') format('truetype');
+}
 
-/*@font-face {*/
-    /*font-family: "raleway semibold";*/
-    /*src: url('../Fonts/raleway_family_v3/Raleway-SemiBold.ttf') format('truetype');*/
-/*}*/
+@font-face {
+    font-family: "raleway semibold";
+    src: url('/src/app/Fonts/raleway_family_v3/Raleway-SemiBold.ttf') format('truetype');
+}
 
-/*@font-face {*/
-    /*font-family: "raleway regular";*/
-    /*src: url('../Fonts/raleway_family_v3/Raleway-Regular.ttf') format('truetype');*/
-/*}*/
+@font-face {
+    font-family: "raleway regular";
+    src: url('/src/app/Fonts/raleway_family_v3/Raleway-Regular.ttf') format('truetype');
+}
 
 .container h3 {
     font-family: raleway regular;
@@ -192,3 +192,23 @@ label {
 /*.ng-touched.ng-invalid-required {*/
     /*border-color: red;*/
 /*}*/
+
+.infobtn {
+    color: #E89460;
+    font-size: 24px;
+    margin-top: 0px;
+    margin-left: 15px;
+    font-weight: 100;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

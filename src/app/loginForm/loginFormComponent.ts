@@ -32,9 +32,6 @@ export class LoginFormComponent {
     submitLogin(value: any)
     {
         console.log(value);
-        // this.router.navigate(['./profilePage']);
-
-        //adding webservice code to get the data as json
         console.log(value);
         var headers = new Headers();
         var email=value.controls.email.value;

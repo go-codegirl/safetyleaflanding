@@ -118,3 +118,11 @@
     letter-spacing: 2px;
 }
 
+@media screen and (max-width: 768px) {
+
+    #section2 img {
+        width: 100%;
+        padding-top: 56px;
+        margin-top: -30px;
+    }
+}
