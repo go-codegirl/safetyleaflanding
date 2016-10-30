@@ -95,4 +95,12 @@ export class FormComponent
         this.countryCode = c;
     }
 
+    onMyFuckingLife(c:any){
+        console.log(c);
+    }
+
+    ShowHideDiv(hideinput: any) {
+        console.log(hideinput);
+    }
+
 }

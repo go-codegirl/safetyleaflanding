@@ -138,9 +138,9 @@
 
                 </label>
                 <div class="col-sm-5" style="padding-top: 10px;">
-                    <input type="checkbox" id="hrEmail" checked onclick="ShowHideDiv(this)" />
+                    <input type="checkbox" id="hrEmail" (change) ="ShowHideDiv($event)">
                     <a class="glyphicon glyphicon-info-sign infobtn" data-toggle="tooltip" data-placement="right"
-                          data-original-title="Verification email would be sent to the entered ID with activation link and password "></a>
+                          data-original-title="Verification email would be sent to the entered ID with activation link and password " (mouseover)="onMyFuckingLife($event)"></a>
                 </div>
             </div>
 
@@ -149,14 +149,15 @@
 
                 </label>
                 <div class="col-sm-5">
-                     <input type="text" class="form-control" id="groupEmail" placeholder="Enter HR Email ID"
+                     <input ng-show="ShowHideDiv(checked)" type="text" class="form-control" id="groupEmail" placeholder="Enter HR Email ID"
                            formControlName="workEmail">
+
                     <div class='error' *ngIf="registerForm.controls.workEmail.touched">
                         <em *ngIf="registerForm.controls.workEmail.hasError('required')" style="color: red;">Required!</em>
                         <em *ngIf="registerForm.controls.workEmail.hasError('invalidEmail')" style="color: red;">Email is invalid.</em>
                     </div>
                 </div>
-            </div>
+            </div>`
 
             <div class="form-group">
                 <label class="control-label col-sm-2" for="inputAccManagerL"><small>Acc.Manager Name</small></label>
