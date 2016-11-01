@@ -16,9 +16,6 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputName" placeholder="Enter your Company Name"
                            formControlName="companyName">
-                    <!--<small [hidden]="registerForm.controls.companyName.valid || (registerForm.controls.companyName.pristine && !submitted)" class="text-danger">-->
-                        <!--Name is required (minimum 5 characters).-->
-                    <!--</small>-->
                     <div class='error' *ngIf="registerForm.controls.companyName.touched">
                         <em *ngIf="registerForm.controls.companyName.errors" style="color: red;">You can't leave this empty.!</em>
                     </div>
@@ -138,18 +135,29 @@
 
                 </label>
                 <div class="col-sm-5" style="padding-top: 10px;">
-                    <input type="checkbox" id="hrEmail" (change) ="ShowHideDiv($event)">
-                    <a class="glyphicon glyphicon-info-sign infobtn" data-toggle="tooltip" data-placement="right"
-                          data-original-title="Verification email would be sent to the entered ID with activation link and password " (mouseover)="onMyFuckingLife($event)"></a>
+                    <input type="checkbox" id="hrEmail" (click) ="ShowHideDiv($event.target.checked)">
+                    <p id="infoButton" class="glyphicon glyphicon-info-sign infobtn"  (mouseover)="infoSign($event.target.id)" (mouseleave)="infoSignLeave($event.target.id)"></p>
+
+                    <p *ngIf="this.showIcon" id="iconStyle" style="background-color: #E89460;
+                                width: 300px;
+                                border: 1px solid lightgrey;
+                                border-radius: 10px;
+                                padding: -5px;
+                                padding-left: 10px;
+                                color: white;
+                                bottom: 0px;
+                                margin-top: -45px; margin-left: 65px">
+
+                        Verification email would be sent to the entered ID with activation link and password</p>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" *ngIf="this.inputChange">
                 <label class="control-label col-sm-2" id="EmailID"><small>Group HR Email ID</small>
 
                 </label>
                 <div class="col-sm-5">
-                     <input ng-show="ShowHideDiv(checked)" type="text" class="form-control" id="groupEmail" placeholder="Enter HR Email ID"
+                     <input type="text" class="form-control" id="groupEmail" placeholder="Enter HR Email ID"
                            formControlName="workEmail">
 
                     <div class='error' *ngIf="registerForm.controls.workEmail.touched">
@@ -159,7 +167,7 @@
                 </div>
             </div>`
 
-            <div class="form-group">
+            <div class="form-group" style="margin-top: -25px; top: 0px;">
                 <label class="control-label col-sm-2" for="inputAccManagerL"><small>Acc.Manager Name</small></label>
                 <div class="col-sm-5">
                     <input type="text" class="form-control" id="inputAccManagerL" placeholder=""

@@ -29,6 +29,9 @@ export class FormComponent
     countryCode:string[];
     employeeList:string[];
     describeList:string[];
+    inputChange: any;
+    showIcon: any;
+    hideIcon:any;
 
     constructor(private formBuilder: FormBuilder, private http:Http) {
         this.httpClient = http;
@@ -95,11 +98,26 @@ export class FormComponent
         this.countryCode = c;
     }
 
-    onMyFuckingLife(c:any){
-        console.log(c);
+    infoSign(infoIcon:any){
+        if(infoIcon == "infoButton")
+        {
+            this.showIcon = true;
+        }
+        console.log(infoIcon);
+    }
+
+    infoSignLeave(infoIcon:any) {
+        if (infoIcon == "infoButton") {
+            this.showIcon = false;
+        }
     }
 
     ShowHideDiv(hideinput: any) {
+        this.inputChange = hideinput;
+
+
+
+
         console.log(hideinput);
     }
 

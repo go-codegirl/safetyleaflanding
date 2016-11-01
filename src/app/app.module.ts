@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, enableProdMode} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpModule, JsonpModule} from '@angular/http';
@@ -15,6 +15,8 @@ import {ProfileComponent} from './profilePage/profileComponent';
 import {LoginFormComponent} from './loginForm/loginFormComponent';
 import {FooterComponent} from './footer/footerComponent';
 import {profileDataServices} from './service/profileDataService';
+import {enableProdMode} from '@angular/core';
+enableProdMode();
 
 @NgModule({
     declarations: [

@@ -212,3 +212,14 @@ label {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+#iconStyle::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 66px;
+    margin-top: -15px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent #E89460 transparent transparent;
+}
