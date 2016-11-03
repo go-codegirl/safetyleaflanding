@@ -15,8 +15,7 @@ import {ProfileComponent} from './profilePage/profileComponent';
 import {LoginFormComponent} from './loginForm/loginFormComponent';
 import {FooterComponent} from './footer/footerComponent';
 import {profileDataServices} from './service/profileDataService';
-import {enableProdMode} from '@angular/core';
-enableProdMode();
+
 
 @NgModule({
     declarations: [

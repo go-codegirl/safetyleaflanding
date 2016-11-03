@@ -10,4 +10,5 @@ import {LoginFormComponent} from './loginForm/loginFormComponent';
 })
 
 export class AppComponent {
+
 }

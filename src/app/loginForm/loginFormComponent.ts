@@ -4,6 +4,8 @@ import {ROUTER_PROVIDERS} from "@angular/router/src/router_module";
 import {Router} from "@angular/router";
 import {Headers, Http} from "@angular/http";
 import {profileDataServices} from "../service/profileDataService";
+import {loginEmail} from './loginValidations';
+
 
 @Component({
     selector: 'login-form',
@@ -16,11 +18,13 @@ export class LoginFormComponent {
 
     loginForm: FormGroup;
     httpClient:Http;
+    responseMessageFromService:string = null;
+
 
     constructor(private formBuilder: FormBuilder, private router: Router, private http:Http, private profileDataService: profileDataServices) {
         this.httpClient = this.http;
         this.loginForm = formBuilder.group({
-            email: ['', Validators.required],
+            email: ['', Validators.compose([Validators.required,loginEmail])],
             password: ['', Validators.required]
         });
     }
@@ -29,31 +33,41 @@ export class LoginFormComponent {
 
     }
 
-    submitLogin(value: any)
-    {
+    submitLogin(value: any) {
         console.log(value);
         console.log(value);
         var headers = new Headers();
-        var email=value.controls.email.value;
-        var password=value.controls.password.value;
+        var email = value.controls.email.value;
+        var password = value.controls.password.value;
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
 
 
-        this.httpClient.get('http://localhost:8080/login?username='+email+'&password='+password, {
-            headers: headers
+        this.httpClient.post('http://telosws-poplar6.rhcloud.com/landingLogin', {
+            "email": email,
+            "password": password
         })
             .map(res => res.json())
             .subscribe(data => this.profileDataService.addData(data),
-                err => console.log(err),
-                () => console.log(this.router.navigate(['./profilePage'])));
+                err => console.log(this.router.navigate(['./'])),
+                () => console.log(this.getDirection()));
 
         console.log(value.controls.email.value);
 
 
-
-
     }
 
+    getDirection(){
+    if(this.profileDataService.responseStatus=="success")
+    {
+        this.responseMessageFromService = this.profileDataService.responseMessage;
+        return this.router.navigate(['./profilePage']);
+    }
+    else
+    {
+        this.responseMessageFromService = this.profileDataService.responseMessage;
+        return this.router.navigate(['./']);
+    }
+}
 
 }

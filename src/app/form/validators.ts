@@ -12,7 +12,9 @@ import {ControlGroup} from "@angular/common";
 
 
 export function emailValidator(control: FormControl): {[key: string]: any} {
-    let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+    let EMAIL_REGEXP = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+        // /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
     if (control.value && !EMAIL_REGEXP.test(control.value)) {
         return {invalidEmail: true};
@@ -30,39 +32,6 @@ export function matchingPasswords(passwordKey: string, confirmPasswordKey: strin
         }
     }
 }
-
-
-// export function caseTypeValidator(control: FormControl): {[key: string]: any} {
-//
-//     let SMALL_REGEXP =/(.*[a-z])/;
-//     let CAP_REGEXP =/(.*[A-Z])/;
-//
-//     if(control.value && CAP_REGEXP.test(control.value) && SMALL_REGEXP.test(control.value)) {
-//         return  {capPasswordError: false,smallPasswordError: false};
-//     }
-//     else if(control.value && CAP_REGEXP.test(control.value)) {
-//         return {capPasswordError: false};
-//     }
-//     else if(control.value && SMALL_REGEXP.test(control.value)) {
-//         return {smallPasswordError: false};
-//     }
-// }
-//
-// export function numberSpecialValidator(control: FormControl): {[key: string]: any} {
-//
-//     let NUM_REGEXP =/(.*[0-9])/;
-//     let SPEC_REGEXP =/(.*[!@#\$%\^&\*])/;
-//
-//     if(control.value && NUM_REGEXP.test(control.value) && SPEC_REGEXP.test(control.value)) {
-//         return  {numPasswordError: true,specPasswordError: true};
-//     }
-//     else if(control.value && NUM_REGEXP.test(control.value)) {
-//         return {numPasswordError: true};
-//     }
-//     else if(control.value && SPEC_REGEXP.test(control.value)) {
-//         return {specPasswordError: true};
-//     }
-// }
 
 export function minimumValidator(control: FormControl): {[key: string]: any} {
 
