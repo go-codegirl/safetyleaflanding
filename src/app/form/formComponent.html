@@ -27,7 +27,7 @@
                 <div class="col-sm-4">
                     <select class="form-control" id="inputCountry" placeholder="India"
                            formControlName="country" (change)="onChange($event.target.value)">
-                        <option *ngFor="let listIteam of countriesList" [value]="listIteam.dial_code">
+                        <option *ngFor="let listIteam of countriesList" [value]="listIteam.name">
                             {{listIteam.name}}
                         </option>
                     </select>
@@ -145,12 +145,12 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-sm-2" for="hrEmail"><small>Have Group HR Email</small>
+                <label class="control-label col-sm-2" for="hrGroupEmail"><small>Have Group HR Email</small>
 
                 </label>
                 <div class="col-sm-5" style="padding-top: 10px;">
-                    <input type="checkbox" id="hrEmail" (click) ="ShowHideDiv($event.target.checked)">
-                    <p id="infoButton" class="glyphicon glyphicon-info-sign infobtn"  (mouseover)="infoSign($event.target.id)" (mouseleave)="infoSignLeave($event.target.id)"></p>
+                    <input type="checkbox" id="hrGroupEmail" (click) ="ShowHideDiv($event.target.checked)" formControlName="groupHrEmail">
+                    <p id="infoButton"(mouseover)="infoSign($event.target.id)" (mouseleave)="infoSignLeave($event.target.id)"></p>
 
                     <p *ngIf="this.showIcon" id="iconStyle" style="background-color: #E89460;
                                 width: 300px;
@@ -172,11 +172,11 @@
                 </label>
                 <div class="col-sm-5">
                      <input type="text" class="form-control" id="groupEmail" placeholder="Enter HR Email ID"
-                           formControlName="workEmail">
+                           formControlName="hrEmail">
 
-                    <div class='error' *ngIf="registerForm.controls.workEmail.touched">
-                        <em *ngIf="registerForm.controls.workEmail.hasError('required')" style="color: red;">Required!</em>
-                        <em *ngIf="registerForm.controls.workEmail.hasError('invalidEmail')" style="color: red;">Email is invalid.</em>
+                    <div class='error' *ngIf="registerForm.controls.hrEmail.touched">
+                        <em *ngIf="registerForm.controls.hrEmail.hasError('required')" style="color: red;">Required!</em>
+                        <em *ngIf="registerForm.controls.hrEmail.hasError('invalidEmail')" style="color: red;">Email is invalid.</em>
                     </div>
                 </div>
             </div>
@@ -243,9 +243,9 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="inputPhone"><small>Phone</small></label>
                 <div class="col-sm-1" style="margin-right: -20px;">
-                    <input type="text"  class="form-control" id="code" placeholder="{{countryCode}}"></div>
+                    <input type="text"  class="form-control" id="code" placeholder="{{countryCode}}" formControlName="areaCode"></div>
                 <div class="col-sm-5">
-                    <input type="number" class="form-control" id="inputPhone" placeholder=""
+                    <input type="text" class="form-control" id="inputPhone" placeholder=""
                            formControlName="phone">
                     <!--<small [hidden]="registerForm.controls.phone.valid || (registerForm.controls.phone.pristine && !submitted)" class="text-danger">-->
                          <!--Required.-->

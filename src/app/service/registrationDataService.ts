@@ -13,6 +13,9 @@ export class registrationDataServices {
     {
         return this.registerData;
     }
+
+
+
     addRegisterData(registerForm: any) {
         if(registerForm.status=="success")
         {

@@ -57,17 +57,15 @@ export class LoginFormComponent {
 
     }
 
-    getDirection(){
-    if(this.profileDataService.responseStatus=="success")
-    {
-        this.responseMessageFromService = this.profileDataService.responseMessage;
-        return this.router.navigate(['./profilePage']);
+    getDirection() {
+        if (this.profileDataService.responseStatus == "success") {
+            this.responseMessageFromService = this.profileDataService.responseMessage;
+            return this.router.navigate(['./profilePage']);
+        }
+        else {
+            this.responseMessageFromService = this.profileDataService.responseMessage;
+            return this.router.navigate(['./']);
+        }
     }
-    else
-    {
-        this.responseMessageFromService = this.profileDataService.responseMessage;
-        return this.router.navigate(['./']);
-    }
-}
 
 }
