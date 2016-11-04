@@ -15,6 +15,7 @@ import {ProfileComponent} from './profilePage/profileComponent';
 import {LoginFormComponent} from './loginForm/loginFormComponent';
 import {FooterComponent} from './footer/footerComponent';
 import {profileDataServices} from './service/profileDataService';
+import {registrationDataServices} from './service/registrationDataService';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import {profileDataServices} from './service/profileDataService';
         ReactiveFormsModule
 
     ],
-    providers: [appRoutingProviders,profileDataServices],
+    providers: [appRoutingProviders,profileDataServices,registrationDataServices],
     bootstrap: [AppComponent]
 })
 
