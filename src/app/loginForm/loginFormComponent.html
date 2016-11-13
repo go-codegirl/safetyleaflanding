@@ -1,52 +1,126 @@
 
 <section>
 
-<form [formGroup]="loginForm" (ngSubmit)="submitLogin(loginForm)" class="form-horizontal">
+<!--<form [formGroup]="loginForm" (ngSubmit)="submitLogin(loginForm)" class="form-horizontal">-->
 
-    <div class="form-group">
+    <!--<div class="form-group">-->
 
-        <div class="col-sm-12">
-            <input class="form-control" type="email" id="email" placeholder="Email" style="margin-top: 8px;"
-                   formControlName="email">
-            <div class='error' *ngIf="loginForm.controls.email.touched">
-                <em *ngIf="loginForm.controls.email.errors" style="color: red;"></em>
-                <em *ngIf="loginForm.controls.email.hasError('invalidEmail')" style="color: red;"></em>
+        <!--<div class="col-lg-12" >-->
+            <!--<input class="form-control" type="email" id="email" placeholder="Email" style="margin-top: 8px;"-->
+                   <!--formControlName="email">-->
+            <!--<div class='error' *ngIf="loginForm.controls.email.touched" style="margin-top: 5px;">-->
+                <!--<em *ngIf="loginForm.controls.email.errors" style="color: red; ">Required</em>-->
+                <!--<em *ngIf="loginForm.controls.email.hasError('invalidEmail')" style="color: red;">Email is invalid</em>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+
+        <!--<div class="col-lg-12">-->
+            <!--<input class="form-control" type="password" id="password" placeholder="Passsword"-->
+                   <!--formControlName="password">-->
+            <!--<div class='error' *ngIf="loginForm.controls.password.touched">-->
+                <!--<em *ngIf="loginForm.controls.password.errors" id="passworderror" style="color: red;">Password is Required</em>-->
+                <!--&lt;!&ndash;margin-top: -25px;margin-right: 155px; style="color: red; float: right; margin-right: 80px; margin-top: -15px;"&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div>-->
+
+        <!--<input type="submit" id="forgot"-->
+               <!--style="float: left; margin-top: -10px; margin-left: 10px; margin-right: 10px; text-decoration: underline; background-color: Transparent; color: gray;"-->
+               <!--value="Forgot Login">-->
+
+    <!--</div>-->
+
+    <!--<div class="form-group">-->
+        <!--<button class="btn btn-success" id="loginbutton"-->
+                <!--type="submit" [disabled]="!loginForm.valid"-->
+                <!--style="float:right;-->
+                <!--margin-top: 5px; margin-right: 25px; padding: 5px 30px;">Login</button>-->
+
+
+    <!--</div>-->
+
+    <!--<p style="color: red;">{{responseMessageFromService}}</p>-->
+
+    <form [formGroup]="loginForm" (ngSubmit)="submitLogin(loginForm)" role="form">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <input class="form-control" type="email" id="email" placeholder="Email" style="width:100%; margin-left: 5px; "
+                           formControlName="email">
+                    <!--<input type="email" class="form-control" id="inputEmail" placeholder="Email" formControlName="email"-->
+                           <!--style="width:100%; margin-left: 5px; ">-->
+
+                    <div class='error' *ngIf="loginForm.controls.email.touched" >
+                        <em *ngIf="loginForm.controls.email.hasError('required')" style="color: red; ">Required</em>
+                        <em *ngIf="loginForm.controls.email.hasError('invalidEmail')" style="color: red;">Email is invalid</em>
+                    </div>
+
+                    <!--<div id="forgot">-->
+                        <!--<p style="margin-top: 55px; margin-left: 10px; position: fixed;"><a href="#" style="color: gray;">Forgot Login?</a></p>-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="form-group">
+                    <input class="form-control" type="password" id="password" placeholder="Passsword" style="width:100%; "
+                           formControlName="password">
+                    <!--<input type="password" class="form-control" id="inputPassword" placeholder="Password" formControlName="password" style="width:100%; ">-->
+
+                    <div class='error' *ngIf="loginForm.controls.password.touched">
+                        <em *ngIf="loginForm.controls.password.hasError('required')" style="color: red; ">Required</em>
+                        <em *ngIf="loginForm.controls.password.hasError('invalidLoginpwd')" style="color: red;">Password must have these charters(A-Z,a-z,!@#$%^&*,1-10)
+
+                            Min length is 8</em>
+                    </div>
+                </div>
+            </div>
+
+                <div class="col-lg-6">
+
+                    <div id="forgot">
+                        <button data-toggle="modal" data-target="#myModal"
+                                style="margin-top: 20px; margin-left: 10px; position: fixed;
+                                background-color: transparent; border-color: transparent; color: gray;">Forgot Login?</button>
+
+                        <div class="modal " id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Modal Header</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Some text in the modal.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <button class="btn btn-success" id="loginbutton"
+                            type="submit" [disabled]="!loginForm.valid" style="float:right;
+                    margin-top: 15px; margin-right: -20px; padding: 5px 30px;">Login</button>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="form-group">
-
-        <div class="col-sm-12" style="margin-top: -10px">
-            <input class="form-control" type="password" id="password" placeholder="Passsword"
-                   formControlName="password">
-            <div class='error' *ngIf="loginForm.controls.password.touched">
-                <em *ngIf="loginForm.controls.password.errors" id="passworderror" style="color: red;"></em>
-                <!--margin-top: -25px;margin-right: 155px;-->
-            </div>
-        </div>
-    </div>
-
-    <div>
-
-        <input type="submit" id="forgot"
-               style="float: left; margin-top: -20px; margin-left: 10px; margin-right: 10px; text-decoration: underline; background-color: Transparent; color: gray;"
-               value="Forgot Login">
-
-    </div>
-
-    <div class="form-group">
-        <button class="btn btn-success" id="loginbutton"
-                type="submit" [disabled]="!loginForm.valid"
-                style="float:right;
-                margin-top: -10px; margin-right: 25px; padding: 5px 30px;">Login</button>
-
-
-    </div>
-
-    <p style="color: red;">{{responseMessageFromService}}</p>
-
-</form>
+    </form>
 
 </section>
 

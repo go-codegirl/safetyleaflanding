@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 
 
+
 @Component({
     selector: 'product-app',
     templateUrl: 'app/productPage/productComponent.html',

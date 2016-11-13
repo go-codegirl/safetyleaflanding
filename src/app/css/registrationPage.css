@@ -1,27 +1,27 @@
-@font-face {
-    font-family: "open sans light";
-    src: url('/src/app/Fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
-}
+/*@font-face {*/
+    /*font-family: "open sans light";*/
+    /*src: url('/src/app/Fonts/OpenSans/OpenSans-Light.ttf') format('truetype');*/
+/*}*/
 
-@font-face {
-    font-family: "open sans regular";
-    src: url('/src/app/Fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
-}
+/*@font-face {*/
+    /*font-family: "open sans regular";*/
+    /*src: url('/src/app/Fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');*/
+/*}*/
 
-@font-face {
-    font-family: "open sans semibold";
-    src: url('/src/app/Fonts/OpenSans/OpenSans-Semibold.ttf') format('truetype');
-}
+/*@font-face {*/
+    /*font-family: "open sans semibold";*/
+    /*src: url('/src/app/Fonts/OpenSans/OpenSans-Semibold.ttf') format('truetype');*/
+/*}*/
 
-@font-face {
-    font-family: "raleway semibold";
-    src: url('/src/app/Fonts/raleway_family_v3/Raleway-SemiBold.ttf') format('truetype');
-}
+/*@font-face {*/
+    /*font-family: "raleway semibold";*/
+    /*src: url('/src/app/Fonts/raleway_family_v3/Raleway-SemiBold.ttf') format('truetype');*/
+/*}*/
 
-@font-face {
-    font-family: "raleway regular";
-    src: url('/src/app/Fonts/raleway_family_v3/Raleway-Regular.ttf') format('truetype');
-}
+/*@font-face {*/
+    /*font-family: "raleway regular";*/
+    /*src: url('/src/app/Fonts/raleway_family_v3/Raleway-Regular.ttf') format('truetype');*/
+/*}*/
 
 .container h3 {
     font-family: raleway regular;
@@ -193,7 +193,7 @@ label {
     /*border-color: red;*/
 /*}*/
 
-.infobtn {
+#infoButton {
     color: #E89460;
     font-size: 24px;
     margin-top: 0px;

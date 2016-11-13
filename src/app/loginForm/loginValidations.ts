@@ -9,3 +9,11 @@ export function loginEmail(control: FormControl): {[key: string]: any} {
         return {invalidEmail: true};
     }
 }
+
+export function loginPassword(control: FormControl): {[key: string]: any} {
+    let LOGIN_REGEXP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,10}/;
+
+    if (control.value && !LOGIN_REGEXP.test(control.value)) {
+        return {invalidLoginpwd: true};
+    }
+}

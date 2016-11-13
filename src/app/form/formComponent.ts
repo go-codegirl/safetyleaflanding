@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators, FormControl} from "@angular/forms";
 import {
     emailValidator, matchingPasswords,
     // caseTypeValidator, numberSpecialValidator,
@@ -23,7 +23,7 @@ import {registrationDataServices} from "../service/registrationDataService";
 
 export class FormComponent
 {
-
+    inputChange = true;
     registerForm: FormGroup;
     httpClient:Http;
     countriesList:any;
@@ -31,13 +31,14 @@ export class FormComponent
     countryCode:string[];
     employeeList:string[];
     describeList:string[];
-    inputChange: any;
     showIcon: any;
     hideIcon:any;
+    emailtouch: any;
+    isAvailable = true;
 
     constructor(private formBuilder: FormBuilder, private http:Http, private router: Router, private registrationDataServices: registrationDataServices) {
         this.httpClient = http;
-
+        this.inputChange = true;
 
         this.countriesList= getSelectorOptions('country');
         this.companyList=getSelectCompanyProfile('company');
@@ -52,24 +53,27 @@ export class FormComponent
                 employees: ['', Validators.required],
                 describe: ['', Validators.required],
                 workEmail: ['', Validators.compose([Validators.required,emailValidator])],
-                hrEmail: ['', emailValidator],
+                hrEmail: ['', Validators.compose([emailValidator])],
                 groupHrEmail: ['',],
                 accManager: ['', Validators.required],
                 password: ['', Validators.compose([Validators.required, minimumValidator,upperCaseValidator, lowerCaseValidator,
                     numberValidator, specialValidator])],
                 repPassword: ['', Validators.required],
-                areaCode: ['', ],
+                areaCode: ['',],
                 phone: ['', Validators.required]
 
             }
-            , {validator: matchingPasswords('password','repPassword')}
+            , {
+                validator: matchingPasswords('password', 'repPassword'),
+                requiredValidator: matchingPasswords('password', 'repPassword')
+            }
         );
             // {Validator: areEqual})
 
     }
 
     ngOnInit() {
-
+        this.inputChange = true;
     }
 
         submitRegistration(value: any)
@@ -91,12 +95,13 @@ export class FormComponent
                 var isGroupHrEmail=(value.controls.groupHrEmail.value == true ? 1 : 0);
                 headers.append('Access-Control-Allow-Origin', '*');
                 headers.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+                headers.append('Content-Type', 'application/json');
 
                 this.httpClient.post('http://telosws-poplar6.rhcloud.com/signup', {
                     "companyName" : companyName,
                     "companyUrl" : url,
                     "companyProfile" : companyProfile,
-                    "numberOfEmployees" : employees,
+                    "numberOfEmployees" : "5000",
                     "companyDescription" : describe,
                     "countryName": country,
                     "accountManagerName" : accManager,
@@ -106,13 +111,12 @@ export class FormComponent
                     "password" : password,
                     "countryCode" : areaCode,
                     "phoneNumber" : phone
+
                 })
                     .map(res => res.json())
                     .subscribe(data => this.registrationDataServices.addRegisterData(data),
-                        err => console.log()),
-                        () => console.log(this.getDirection());
-
-                console.log(value.controls.email.value);
+                        err => console.log(this.router.navigate(['./form'])),
+                        () => console.log(this.getDirection()));
 
 
             }
@@ -120,11 +124,11 @@ export class FormComponent
     getDirection() {
         if (this.registrationDataServices.registerStatus == "success") {
             //this.responseMessageFromService = this.profileDataService.responseMessage;
-            // return this.router.navigate(['./']);
+            return this.router.navigate(['./']);
         }
         else {
-            //this.responseMessageFromService = this.profileDataService.responseMessage;
-            //return this.router.navigate(['./']);
+           // this.responseMessageFromService = this.profileDataService.responseMessage;
+            return this.router.navigate(['./form']);
         }
     }
 
@@ -158,12 +162,14 @@ export class FormComponent
     }
 
     ShowHideDiv(hideinput: any) {
+        this.isAvailable = hideinput;
         this.inputChange = hideinput;
-
-
-
-
         console.log(hideinput);
+    }
+
+    emailclick(emailinput:any) {
+        this.emailtouch = emailinput;
+          console.log(emailinput);
     }
 
 }

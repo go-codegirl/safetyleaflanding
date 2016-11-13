@@ -1,7 +1,7 @@
-@font-face {
-    font-family: "open sans light";
-    src: url('/src/app/Fonts/OpenSans/OpenSans-Light.ttf') format('truetype');
-}
+/*@font-face {*/
+    /*font-family: "open sans light";*/
+    /*src: url('/src/app/Fonts/OpenSans/OpenSans-Light.ttf') format('truetype');*/
+/*}*/
 
 .navbar-nav li {
     margin-top: 25px;

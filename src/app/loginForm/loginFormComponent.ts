@@ -4,7 +4,9 @@ import {ROUTER_PROVIDERS} from "@angular/router/src/router_module";
 import {Router} from "@angular/router";
 import {Headers, Http} from "@angular/http";
 import {profileDataServices} from "../service/profileDataService";
-import {loginEmail} from './loginValidations';
+import {loginEmail, loginPassword} from './loginValidations';
+
+
 
 
 @Component({
@@ -25,7 +27,7 @@ export class LoginFormComponent {
         this.httpClient = this.http;
         this.loginForm = formBuilder.group({
             email: ['', Validators.compose([Validators.required,loginEmail])],
-            password: ['', Validators.required]
+            password: ['', Validators.compose([Validators.required,loginPassword])]
         });
     }
 

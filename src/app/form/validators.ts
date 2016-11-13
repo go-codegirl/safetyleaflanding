@@ -27,6 +27,8 @@ export function matchingPasswords(passwordKey: string, confirmPasswordKey: strin
         let password = group.controls[passwordKey];
         let confirmPassword = group.controls[confirmPasswordKey];
 
+        confirmPassword.validator(require(""));
+
         if (password.value !== confirmPassword.value) {
             return {mismatchedPasswords: true};
         }
@@ -81,4 +83,16 @@ export function specialValidator(control: FormControl): {[key: string]: any} {
         return {specPasswordError: true};
     }
 
+}
+
+
+export function customerequired(passwordKey: string, confirmPasswordKey: string) {
+    return (group: ControlGroup): {[key: string]: any} => {
+        let password = group.controls[passwordKey];
+        let confirmPassword = group.controls[confirmPasswordKey];
+
+        confirmPassword.validator(require(""));
+
+            return {mismatchedPasswords: true};
+    }
 }
